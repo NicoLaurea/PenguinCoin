@@ -120,17 +120,24 @@ export default function Home() {
   //HTML/TAILWIND BASTA DESIGN  BAGUHIN NIYO TO PLS LANG
   return (
     
+    <body style={{ backgroundColor: 'powderblue'}}>
+    <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com"></link>
+    <link rel="preconnect" href="https://fonts.gstatic.com"></link>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet"></link>
+    </head>
       <main>
+        
         <p style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', fontSize: '30px', marginTop: '10px' }}>
-        Welcome to Mint/Staking of Penguin Tokens
-        </p>
+        Welcome to Crypternity of Penguin Tokens
+        </p> 
   
         <div style={{ minHeight: '25vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
-          <button onClick={() => { connectWallet(); }} className="p-3 bg-red-400 text-white rounded">
+          <button onClick={() => { connectWallet(); }} className="p-3 bg-yellow-400 text-black rounded">
             {walletKey !== "" ? walletKey : " Connect wallet"}
           </button>
-  
-          <button onClick={importToken} className="p-3 bg-red-400 text-white rounded" style={{ marginTop: '10px' }}>
+        <br></br>
+          <button onClick={importToken} className="p-3 bg-yellow-400 text-black rounded" style={{ marginTop: '10px' }}>
             Import Token
           </button>
         </div>
@@ -138,16 +145,18 @@ export default function Home() {
         <div style={{marginTop: '10px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
 
           <form>
-            <label> Input Amount To Mint</label><br></br>
+            <label> Minting Amount</label><br></br>
           </form>
           <input
             type="number"
             value={mintingAmount}
             onChange={(e) => mintAmountChange(e)}
+            style={{ color: 'black' }}
           />
+          <br></br>
           <button
             onClick={() => { mintCoin(); }}
-            className="p-3 bg-red-400 text-white rounded">
+            className="p-3 bg-yellow-400 text-black rounded">
             {"Mint Token"}
           </button>
         </div>
@@ -156,32 +165,33 @@ export default function Home() {
   
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '10vh' }}>
           <form>
-            <label> Input Amount To Stake</label><br></br>
+            <label> Stake Amount</label><br></br>
           </form>
           <input
             type="number"
             value={stakingAmount}
             onChange={(e) => stakeAmountChange(e)}
+            style={{ color: 'black' }}
           />
-  
+  <br></br>
           <button
             onClick={stakeCoin}
-            className="p-3 bg-red-400 text-white rounded">
-            {"Stake It"}
+            className="p-3 bg-yellow-400 text-black rounded">
+            {"SlapStake"}
           </button>
         </div>
   
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '20vh' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '30vh' }}>
           <br></br>
-          <label>Wait for At least 1 min before Withdrawing </label>
-
+          <label>Ready to Withdraw your Stake? to buy a Steak? </label>
+          <br></br>
           <button
             onClick={withdrawCoin}
-            className="p-3 bg-red-400 text-white rounded">
-            {"Withdraw"}
+            className="p-3 bg-yellow-400 text-black rounded">
+            {"Withdraw :>"}
           </button>
         </div>
       </main>
-
+    </body>
   );
 }  
