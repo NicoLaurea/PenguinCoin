@@ -122,7 +122,7 @@ export default function Home() {
     
       <main>
         <p style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', fontSize: '30px', marginTop: '10px' }}>
-        Welcome to Mint/Staking of Penguin <Tokens></Tokens>
+        Welcome to Mint/Staking of Penguin Tokens
         </p>
   
         <div style={{ minHeight: '25vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
