@@ -4,7 +4,7 @@ pragma solidity ^0.8.0;
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
-contract sky is Pengu20, Ownable {
+contract PNG is ERC20, Ownable {
 
     mapping(address => uint256) private _stakes;
     mapping(address => uint256) private _lastStakeTimestamp;
