@@ -15,7 +15,7 @@ export default function Home() {
     });
     setwalletKey(accounts[0]);
   };
-  //<Minting>
+  
   const [mintingAmount, setMintingAmount] = useState<number>();
   const [submitted, setSubmitted] = useState(false);
   const [transactionHash, setTransactionHash] = useState("");
@@ -44,9 +44,9 @@ export default function Home() {
       setMintingAmount(0);
     }
   };
-  //</Minting>
+  
 
-  //<Staking>
+  
   const [stakingAmount, setStakingAmount] = useState<number>();
   const stakeCoin = async () => {
     const { ethereum } = window as any;
@@ -72,9 +72,8 @@ export default function Home() {
       setStakingAmount(0);
     }
   };
-  //</Staking>
  
-  //<Withdraw>
+  
   const withdrawCoin = async () => {
     const { ethereum } = window as any;
     const provider = new BrowserProvider(ethereum);
@@ -90,11 +89,11 @@ export default function Home() {
       alert(`Minting failed: ${decodedError?.args}`);
     }
   };
-  //</Withdraw>
-  //<Import Token>
+  
+  
   const importToken = async() => {
     const {ethereum} = window as any;
-    const tokenAddress = "0x1bB0E82A07A7187175A60c96749AB00f33c5856E"; //contract add
+    const tokenAddress = "0x1bB0E82A07A7187175A60c96749AB00f33c5856E";
     const tokenSymbol = "PNG";
     const tokenDecimal = 18;
 
@@ -115,83 +114,75 @@ export default function Home() {
       console.log(error);
     }
   };
-  //</Import Token>
 
-  //HTML/TAILWIND BASTA DESIGN  BAGUHIN NIYO TO PLS LANG
   return (
     
-    <body style={{ backgroundColor: 'powderblue'}}>
-    <head>
-    <link rel="preconnect" href="https://fonts.googleapis.com"></link>
-    <link rel="preconnect" href="https://fonts.gstatic.com"></link>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet"></link>
-    </head>
-      <main>
-        
-        <p style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', fontSize: '30px', marginTop: '10px' }}>
-        Welcome to Crypternity of Penguin Tokens
-        </p> 
-  
-        <div style={{ minHeight: '25vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
-          <button onClick={() => { connectWallet(); }} className="p-3 bg-yellow-400 text-black rounded">
-            {walletKey !== "" ? walletKey : " Connect wallet"}
-          </button>
-        <br></br>
-          <button onClick={importToken} className="p-3 bg-yellow-400 text-black rounded" style={{ marginTop: '10px' }}>
-            Import Token
-          </button>
-        </div>
-  
-        <div style={{marginTop: '10px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+  <body style={{ backgroundColor: '#f0f0f0', fontFamily: 'Montserrat, sans-serif' }}>
+  <main style={{ maxWidth: '600px', margin: 'auto', padding: '20px', borderRadius: '10px', background: '#fff', boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)' }}>
 
-          <form>
-            <label> Minting Amount</label><br></br>
-          </form>
-          <input
-            type="number"
-            value={mintingAmount}
-            onChange={(e) => mintAmountChange(e)}
-            style={{ color: 'black' }}
-          />
-          <br></br>
-          <button
-            onClick={() => { mintCoin(); }}
-            className="p-3 bg-yellow-400 text-black rounded">
-            {"Mint Token"}
-          </button>
-        </div>
-  
-        <br></br>
-  
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '10vh' }}>
-          <form>
-            <label> Stake Amount</label><br></br>
-          </form>
-          <input
-            type="number"
-            value={stakingAmount}
-            onChange={(e) => stakeAmountChange(e)}
-            style={{ color: 'black' }}
-          />
-  <br></br>
-          <button
-            onClick={stakeCoin}
-            className="p-3 bg-yellow-400 text-black rounded">
-            {"SlapStake"}
-          </button>
-        </div>
-  
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '30vh' }}>
-          <br></br>
-          <label>Ready to Withdraw your Stake? to buy a Steak? </label>
-          <br></br>
-          <button
-            onClick={withdrawCoin}
-            className="p-3 bg-yellow-400 text-black rounded">
-            {"Withdraw :>"}
-          </button>
-        </div>
-      </main>
-    </body>
+    <h1 style={{ textAlign: 'center', fontSize: '30px', marginBottom: '20px', color: '#333' }}>
+      Welcome to Crypternity in PenguinCoin
+    </h1>
+
+    <div style={{ marginBottom: '20px', textAlign: 'center' }}>
+      <button onClick={() => { connectWallet(); }} className="p-3 bg-blue-500 text-white rounded">
+        {walletKey !== "" ? walletKey : "Connect Wallet"}
+      </button>
+      <br />
+      <button onClick={importToken} className="p-3 bg-green-500 text-white rounded" style={{ marginTop: '10px' }}>
+        Import Token
+      </button>
+    </div>
+
+    <div style={{ marginBottom: '20px', textAlign: 'center' }}>
+      <form>
+        <label style={{ fontSize: '16px', marginBottom: '5px', color: '#333' }}>Minting Amount</label><br />
+        <input
+          type="number"
+          value={mintingAmount}
+          onChange={(e) => mintAmountChange(e)}
+          style={{ padding: '8px', width: '100%', boxSizing: 'border-box', color: '#333', marginBottom: '10px', borderRadius: '5px', border: '1px solid #ccc' }}
+        />
+      </form>
+      <button
+        onClick={() => { mintCoin(); }}
+        className="p-3 bg-orange-500 text-white rounded"
+        style={{ width: '100%' }}>
+        Mint Token
+      </button>
+    </div>
+
+    <div style={{ marginBottom: '20px', textAlign: 'center' }}>
+      <form>
+        <label style={{ fontSize: '16px', marginBottom: '5px', color: '#333' }}>Stake Amount</label><br />
+        <input
+          type="number"
+          value={stakingAmount}
+          onChange={(e) => stakeAmountChange(e)}
+          style={{ padding: '8px', width: '100%', boxSizing: 'border-box', color: '#333', marginBottom: '10px', borderRadius: '5px', border: '1px solid #ccc' }}
+        />
+      </form>
+      <button
+        onClick={stakeCoin}
+        className="p-3 bg-purple-500 text-white rounded"
+        style={{ width: '100%' }}>
+        SlapStake
+      </button>
+    </div>
+
+    <div style={{ textAlign: 'center' }}>
+      <label style={{ fontSize: '16px', color: '#333' }}>Ready to Withdraw your Stake? to buy a Steak?</label>
+      <br />
+      <button
+        onClick={withdrawCoin}
+        className="p-3 bg-red-500 text-white rounded"
+        style={{ width: '100%' }}>
+        Withdraw :&gt;
+      </button>
+    </div>
+
+  </main>
+</body>
+
   );
 }  
