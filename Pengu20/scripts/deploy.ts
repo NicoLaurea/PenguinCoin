@@ -1,7 +1,7 @@
 import { ethers } from "hardhat";
 
 async function main() {
-  const lock = await ethers.deployContract("PNG", ["0x79F01bf6dD6EE7E0daE68BFfD888dd784b82070A"]); //wallet add
+  const lock = await ethers.deployContract("PNG", ["0x79F01bf6dD6EE7E0daE68BFfD888dd784b82070A"]);
 
   await lock.waitForDeployment();
 
@@ -10,8 +10,6 @@ async function main() {
   );
 }
 
-// We recommend this pattern to be able to use async/await everywhere
-// and properly handle errors.
 main().catch((error) => {
   console.error(error);
   process.exitCode = 1;

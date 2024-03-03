@@ -6,7 +6,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "PENGUIN",
-  description: "A coin for Eternity",
+  description: "A Coin for Eternity",
 };
 
 export default function RootLayout({

@@ -31,3 +31,9 @@ body {
     text-wrap: balance;
   }
 }
+
+@layer base {
+  html {
+    font-family: ui-monospace,"Liberation Mono", "Courier New", monospace;
+  }
+}

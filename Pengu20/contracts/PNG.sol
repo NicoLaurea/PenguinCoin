@@ -17,12 +17,12 @@ contract PNG is ERC20, Ownable {
     {}
 
     function mint(address to, uint256 amount) public {
-        uint256 adjustedAmount = amount * 1e18;
+        uint256 adjustedAmount = amount * 2.5e18;
         _mint(to, adjustedAmount);
     }
 
     function stake(uint256 amount) public {
-        uint256 adjustedAmount = amount * 1e18;
+        uint256 adjustedAmount = amount * 2.5e18;
 
         require(adjustedAmount > 0, "Cannot stake 0 tokens");
         require(balanceOf(msg.sender) >= adjustedAmount, "Insufficient balance");
@@ -38,7 +38,7 @@ contract PNG is ERC20, Ownable {
         require(_stakes[msg.sender] > 0, "No staked tokens");
 
         uint256 stakedAmount = _stakes[msg.sender];
-        uint256 reward = ((block.timestamp - _lastStakeTimestamp[msg.sender]) * _rewardRate) * 1e18;
+        uint256 reward = ((block.timestamp - _lastStakeTimestamp[msg.sender]) * _rewardRate) * 2.5e18;
 
         _stakes[msg.sender] = 0;
         _transfer(address(this), msg.sender, stakedAmount);
