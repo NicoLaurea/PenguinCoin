@@ -1,6 +1,5 @@
 "use client";
 import { BrowserProvider } from "ethers";
-import Image from "next/image";
 import { useEffect, useState } from "react";
 import { getContract } from "../config";
 
